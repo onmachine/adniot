@@ -1,7 +1,7 @@
 adniot
 ======
 
-Connection your thing to app.net
+Connecting your thing to app.net
 
 Goals
 -----
