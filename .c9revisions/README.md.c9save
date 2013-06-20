@@ -1,2 +1,0 @@
-{"ts":1371061478928,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"adniot\n======\n\nConnection your thing to app.net\n"]],"start1":0,"start2":0,"length1":0,"length2":48}]],"length":48}
-{"contributors":[],"silentsave":false,"ts":1371061748392,"patch":[[{"diffs":[[0,"app.net\n"],[1,"\nGoals\n-----\n\n  * Allow things to post alerts to ADN private messages api\n  * Allow a person to easily manage those alerts through a Web app\n"]],"start1":40,"start2":40,"length1":8,"length2":149}]],"length":189,"saved":false}
