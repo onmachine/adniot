@@ -44,6 +44,8 @@ window.APPDOTNET = (function () {
 
             ajax_options.url = this.options.root_url + location;
             ajax_options.data.access_token = this.options.access_token;
+            
+            console.log(ajax_options);
 
             return $.ajax(ajax_options);
         },
@@ -65,8 +67,11 @@ window.APPDOTNET = (function () {
                 type: 'GET'
             };
 
-            var url = 'users/' + user_id + '/messages';
+            //var url = 'users/' + user_id + '/messages';
+            
+            var url = 'channels/20188/messages';
 
+            
             return this.request(url, options);
 
         },

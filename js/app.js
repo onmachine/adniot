@@ -22,7 +22,7 @@
         var authorize = $('.js-authorize');
         var running = $('.js-running');
         var profileMenu = $('.js-profileMenu');
-        var last_mention_time = 0;
+        var last_message_time = 0;
 
         var swap_panels = function () {
             authorize.addClass('hide');
@@ -55,48 +55,48 @@
             return false;
         }
 */
-        var poll_for_new_mentions = function (callback) {
-            API.mentions().done(function (data) {
+        var poll_for_new_messages = function (callback) {
+            API.messages().done(function (data) {
                 callback(data);
             });
         };
 
-        poll_for_new_mentions(function (data) {
+        poll_for_new_messages(function (data) {
             $.each(data.data, function (i, el) {
                 date = 0 + Date.parse(el.created_at);
-                if (date > last_mention_time) {
-                    last_mention_time = date;
+                if (date > last_message_time) {
+                    last_message_time = date;
                 }
             });
         });
         
 
-        var announce = function (mention) {
+        var announce = function (message) {
             
-            //console.log('new mention', mention);
+            console.log('new message', message);
             
-            var data = {alertTitle: "Mention Alert", alertText: mention.text}
+            var data = {alertTitle: "Message Alert", alertText: message.text}
             
             $("#alert-section").append(alertTemplate(data));
             
             
             /*
-            $('.js-mentionUser').text(mention.user.username);
-            $('.js-mentionText').text(mention.text);
+            $('.js-messageUser').text(message.user.username);
+            $('.js-messageText').text(message.text);
             $("#alertTemplate").addClass("in");
             
             
             
             var notification = window.webkitNotifications.createNotification(
-                mention.user.avatar_image.url,
-                mention.user.username + ' mentioned you on App.net',
-                mention.text
+                message.user.avatar_image.url,
+                message.user.username + ' messageed you on App.net',
+                message.text
             );
 
             notification.onshow  = notification.ondisplay = function() { setTimeout(function() { notification.cancel(); }, 4000); };
 
             notification.onclick = function () {
-                window.open('https://alpha.app.net/' + mention.user.username + '/post/' + mention.id, '_blank');
+                window.open('https://alpha.app.net/' + message.user.username + '/post/' + message.id, '_blank');
             };
 
             notification.show();
@@ -105,7 +105,8 @@
 
 
         setInterval(function () {
-            poll_for_new_mentions(function (data) {
+            poll_for_new_messages(function (data) {
+                console.log(data);
                 
                 //for easy debugging
                 //announce(data.data[0]);
@@ -113,8 +114,8 @@
             
                 $.each(data.data, function (i, el) {
                     date = 0 + Date.parse(el.created_at);
-                    if (date > last_mention_time) {
-                        last_mention_time = date;
+                    if (date > last_message_time) {
+                        last_message_time = date;
                         announce(el);
                     }
                 });
