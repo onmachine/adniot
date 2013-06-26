@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>adniot</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      
+  </head>
+  <body>
+      
+      <!-- Custom styles for this template -->
+<style>
+
+  body {
+    padding-top: 60px;
+  }
+
+</style>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+
+    <!-- .navbar-toggle is used as the toggle for collapsed navbar content -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <!-- Be sure to leave the brand out there if you want it shown -->
+    <a class="navbar-brand" href="#">adniot</a>
+
+                    
+    <!-- Place everything within .navbar-collapse to hide it until above 768px -->
+    <div class="nav-collapse collapse">
+          <ul class="nav navbar-nav">
+    <li class="active"><a href="#">Dashboard</a></li>
+    <li><a href="#">Sensors</a></li>
+    <li><a href="#">Archive</a></li>
+    <li class='js-profileMenu hide'><a href="#" class='js-username'></a></li>
+  </ul>
+      
+    </div><!-- /.nav-collapse -->
+      
+      
+  </div><!-- /.container -->
+    
+</div><!-- /.navbar -->
+      
+      <div class="container app">
+        <section class='js-authorize'>
+            <div class='hero-unit'>
+                <h1>Please &rarr; <a href='#authorize' class='js-authorize-click'>authorize</a></h1>
+                <p>Before we get started you must authorize this app on App.net</p>
+            </div>
+        </section>
+        <section class='js-running hide'>
+            
+            
+    <!-- handlebars template for alerts -->
+            
+    <script id="alert-template" type="text/x-handlebars-template">
+        
+        <div class="alert alert-danger fade in">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>{{alertTitle}}:&nbsp;</strong>{{alertText}}
+      </div>
+        
+    </script> <!-- /#alert-template -->
+            
+    
+    <section id='alert-section'></section>
+
+            
+<!--
+      <div class="list-group">
+  <a href="#" class="list-group-item active">
+    <h4 class="list-group-item-heading">garageDoor</h4>
+    <p class="list-group-item-text">2013-06-12 10:55 open</p>
+  </a>
+  <a href="#" class="list-group-item">
+    <h4 class="list-group-item-heading">garageDoor</h4>
+    <p class="list-group-item-text">2013-06-12 11:55 open</p>
+  </a>
+</div>
+      -->
+          </section>  <!-- /.js-running -->
+      </div>  <!-- /.container .app -->
+      
+      
+      
+      <script src="http://code.jquery.com/jquery.js"></script>
+      <script src="bootstrap/js/bootstrap.min.js"></script>
+      <script src='js/vendor/handlebars.js'></script>
+      <script src='js/deps/URI.js'></script>
+      <script src='js/appdotnet_api_client.js'></script>
+        <script type="text/javascript">
+        
+        var NOTIFIER_OPTIONS = {
+            client_id: 'L3XVSdGVcUvLxxpW9frvat6yq32a2VMN',
+            redirect_uri: 'http://localhost:8000/'
+        };
+        
+        </script>
+        <script src='js/app.js'></script>
+      
+  </body>
+</html>
